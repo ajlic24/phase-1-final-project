@@ -1,6 +1,8 @@
 document.addEventListener(`DOMContentLoaded`, () => {
 
+    const form = document.getElementById(`form`)
     const card = document.getElementById('put-here')
+    const planCard = document.getElementById(`plan-card`)
     
     function create(ele) {
         return document.createElement(ele)
@@ -11,25 +13,44 @@ document.addEventListener(`DOMContentLoaded`, () => {
         let img = meal.image
         let name = meal.label
         let servings = meal.yield
+        let url = meal.shareAs
         let calories = parseInt(meal.calories / servings)
         let nutrients = meal.totalNutrients
         let carbAmt = parseInt(nutrients.CHOCDF.quantity / servings)
         let proteinAmt = parseInt(nutrients.PROCNT.quantity / servings)
         let fatAmt = parseInt(nutrients.FAT.quantity / servings)
 
-        let [col, equal, image, cardBody, cardTitle, cardText, span] = [create('div'), create('div'), create('img'), create('div'), create('h5'), create('p'), create('span')]
+        let [col, equal, image, cardBody, cardTitle, cardText, addBtn, a] = [create('div'), create('div'), create('img'), create('div'), create('h5'), create('p'), create('button'), create('a')]
 
+        a.href = url
+        a.target = '_blank'
         col.className = 'col'
         equal.className = 'card h-100'
         image.className = 'card-img-top'
         cardBody.className = 'card-body'
         cardTitle.className = 'card-title'
         cardText.className = 'card-text'
+        addBtn.className = 'btn btn-success'
+        // addBtn.id = `${data.hits.indexOf(object)}`
         image.src = img
+        addBtn.textContent = 'Add'
         cardTitle.textContent = name
-        cardText.textContent = `Calories: ${calories} grams\nCarbs: ${carbAmt} grams\nProtein: ${proteinAmt} grams\nFats: ${fatAmt} grams`
+        cardText.textContent = `Calories: ${calories} | Carbs: ${carbAmt} grams | Protein: ${proteinAmt} grams | Fats: ${fatAmt} grams`
 
-        cardBody.append(cardTitle, cardText)
+        addBtn.addEventListener(`click`, () => {
+            addBtn.className = 'btn btn-danger'
+            addBtn.textContent = 'Added!'
+            addBtn.disabled = true
+            
+            a.appendChild(cardTitle)
+            cardBody.append(a, cardText, addBtn)
+            equal.append(image, cardBody)
+            col.appendChild(equal)
+            planCard.appendChild(col)
+        })
+
+        a.appendChild(cardTitle)
+        cardBody.append(a, cardText, addBtn)
         equal.append(image, cardBody)
         col.appendChild(equal)
         card.appendChild(col)
@@ -37,7 +58,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
 
     }
 
-    document.getElementById(`form`).addEventListener(`submit`, e => {
+    form.addEventListener(`submit`, e => {
         e.preventDefault()
         card.replaceChildren()
 
@@ -94,8 +115,10 @@ document.addEventListener(`DOMContentLoaded`, () => {
         return resp.json()
     })
       .then(data => {
+          console.log(data)
           data.hits.forEach(makeEverything)
         })
+    form.reset()
     })
 })
 

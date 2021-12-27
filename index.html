@@ -9,10 +9,54 @@
   </head>
   <body>
     <main class="container">
-        <form id="form">
+        <form class="row g-3" id="form">
+            <div class="col-md-6">
+              <label for="calories" class="form-label">Enter amount of calories</label>
+              <input type="text" class="form-control" id="calories" placeholder="Calories...">
+            </div>
+            <div class="col-md-6">
+              <label for="carbs" class="form-label">Enter carbohydrates amount</label>
+              <input type="text" class="form-control" id="carbs" placeholder="Carbs...">
+            </div>
+            <div class="col-md-6">
+              <label for="protein" class="form-label">Enter protein amount</label>
+              <input type="text" class="form-control" id="protein" placeholder="Protein...">
+            </div>
+            <div class="col-md-6">
+              <label for="fats" class="form-label">Enter fat amount</label>
+              <input type="text" class="form-control" id="fats" placeholder="Fats...">
+            </div>
+            <div class="col-md-6">
+              <label for="query" class="form-label">Enter food (required)</label>
+              <input type="text" class="form-control" id="query" placeholder="Food...">
+            </div>
+            <!-- <div class="col-md-4">
+              <label for="inputState" class="form-label">State</label>
+              <select id="inputState" class="form-select">
+                <option selected>Choose...</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label for="inputZip" class="form-label">Zip</label>
+              <input type="text" class="form-control" id="inputZip">
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                  Check me out
+                </label>
+              </div>
+            </div> -->
+            <div class="col-md-6">
+              <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+            </div>
+          </form>
+        <!-- <form id="form">
             <label for="calories">Calories</label>
-            <input type='text'id="calories" name='calories' placeholder="Enter Calories">
-            <label for="calories">Carbs</label>
+            <input type='text'id="calories" name='calories' placeholder="Enter Calories"> 
+            <label for="calories">Carbs</label> 
             <input type='text'id="carbs" name='carbs' placeholder="Enter Carbs">
             <label for="calories">Protein</label>
             <input type='text'id="protein" name='protein' placeholder="Enter Protein">
@@ -22,7 +66,47 @@
             <input type="text" id="query" name="query" placeholder="Enter food" required>
             <br>
             <input type="submit" id="submit" value="Submit">
-        </form>
+        </form>  -->
+    </main>
+    <main class="container" id="resultsPage">
+        <div class="row row-cols-1 row-cols-md-5 g-4">
+            <div class="col">
+              <div class="card h-100">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a short card.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+          </div>
     </main>
 
 

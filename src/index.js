@@ -1,23 +1,46 @@
 document.addEventListener(`DOMContentLoaded`, () => {
 
+    const card = document.getElementById('put-here')
+    
+    function create(ele) {
+        return document.createElement(ele)
+    }
 
     function makeEverything(object) {
         let meal = object.recipe
         let img = meal.image
         let name = meal.label
         let servings = meal.yield
-        let calories = meal.calories / servings
+        let calories = parseInt(meal.calories / servings)
         let nutrients = meal.totalNutrients
-        let carbAmt = nutrients.CHOCDF.quantity / servings
-        let proteinAmt = nutrients.PROCNT.quantity / servings
-        let fatAmt = nutrients.FAT.quantity / servings
+        let carbAmt = parseInt(nutrients.CHOCDF.quantity / servings)
+        let proteinAmt = parseInt(nutrients.PROCNT.quantity / servings)
+        let fatAmt = parseInt(nutrients.FAT.quantity / servings)
 
+        let [col, equal, image, cardBody, cardTitle, cardText, span] = [create('div'), create('div'), create('img'), create('div'), create('h5'), create('p'), create('span')]
+
+        col.className = 'col'
+        equal.className = 'card h-100'
+        image.className = 'card-img-top'
+        cardBody.className = 'card-body'
+        cardTitle.className = 'card-title'
+        cardText.className = 'card-text'
+        image.src = img
+        cardTitle.textContent = name
+        cardText.textContent = `Calories: ${calories} grams\nCarbs: ${carbAmt} grams\nProtein: ${proteinAmt} grams\nFats: ${fatAmt} grams`
+
+        cardBody.append(cardTitle, cardText)
+        equal.append(image, cardBody)
+        col.appendChild(equal)
+        card.appendChild(col)
 
 
     }
 
     document.getElementById(`form`).addEventListener(`submit`, e => {
         e.preventDefault()
+        card.replaceChildren()
+
         let calories = e.target.querySelector(`#calories`).value
         let carbs = e.target.querySelector(`#carbs`).value
         let protein = e.target.querySelector(`#protein`).value
@@ -73,20 +96,8 @@ document.addEventListener(`DOMContentLoaded`, () => {
       .then(data => {
           data.hits.forEach(makeEverything)
         })
-
-
-
-
-
     })
 })
 
-//-----------------------------------------------------------
-
-
-    //     fetch(`https://api.spoonacular.com/recipes/findByNutrients?apiKey=4c88f9565fdd4fd2af803d0b2bbe0d96${minCalorie}${maxCalorie}${minCarbs}${maxCarbs}${minProtein}${maxProtein}${minFats}${maxFats}&number=10`)
-    //     .then(resp => resp.json())
-    //     .then(data => console.log(data))
-    //     .catch(error => console.log(error))
 
     

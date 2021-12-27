@@ -1,9 +1,23 @@
 document.addEventListener(`DOMContentLoaded`, () => {
 
-    const form = document.getElementById(`form`)
-    const card = document.getElementById('put-here')
-    const planCard = document.getElementById(`plan-card`)
-    
+    let [form, card, planCard, search, meal, searchPage, resultPage, planPage] = [get(`form`), get('put-here'), get(`plan-card`), get(`search-link`), get(`meal-link`), get(`searchPage`), get(`resultsPage`), get(`planPage`)]
+
+    search.addEventListener(`click`, () => {
+        searchPage.className = 'container'
+        resultPage.className = 'container'
+        planPage.className = 'container d-none'
+    })
+
+    meal.addEventListener(`click`, () => {
+        searchPage.className = 'container d-none'
+        resultPage.className = 'container d-none'
+        planPage.className = 'container'
+    })
+
+    function get(ele) {
+        return document.getElementById(ele)
+    }
+
     function create(ele) {
         return document.createElement(ele)
     }
@@ -31,20 +45,26 @@ document.addEventListener(`DOMContentLoaded`, () => {
         cardTitle.className = 'card-title'
         cardText.className = 'card-text'
         addBtn.className = 'btn btn-success'
-        // addBtn.id = `${data.hits.indexOf(object)}`
         image.src = img
         addBtn.textContent = 'Add'
         cardTitle.textContent = name
         cardText.textContent = `Calories: ${calories} | Carbs: ${carbAmt} grams | Protein: ${proteinAmt} grams | Fats: ${fatAmt} grams`
 
         addBtn.addEventListener(`click`, () => {
+            let remove = create('button')
+
+            remove.className = 'btn-close'
             addBtn.className = 'btn btn-danger'
-            addBtn.textContent = 'Added!'
+            addBtn.textContent = 'Added'
             addBtn.disabled = true
-            
+
+            remove.addEventListener(`click`, () => {
+                planCard.removeChild(col)
+            })
+
             a.appendChild(cardTitle)
             cardBody.append(a, cardText, addBtn)
-            equal.append(image, cardBody)
+            equal.append(remove, image, cardBody)
             col.appendChild(equal)
             planCard.appendChild(col)
         })
@@ -54,8 +74,6 @@ document.addEventListener(`DOMContentLoaded`, () => {
         equal.append(image, cardBody)
         col.appendChild(equal)
         card.appendChild(col)
-
-
     }
 
     form.addEventListener(`submit`, e => {
@@ -78,7 +96,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
         } else {
             if (minCalorie <= 0) {
                 maxCalorie = 20
-            } 
+            }
             calorieParam = `&calories=${minCalorie}-${maxCalorie}`
         }
         //------------------------------------------
@@ -87,7 +105,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
         } else {
             if (minCarbs <= 0) {
                 maxCarbs = 20
-            } 
+            }
             carbParam = `&nutrients%5BCHOCDF%5D=${minCarbs}-${maxCarbs}`
         }
         //------------------------------------------
@@ -96,7 +114,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
         } else {
             if (minProtein <= 0) {
                 maxProtein = 20
-            } 
+            }
             proteinParam = `&nutrients%5BPROCNT%5D=${minProtein}-${maxProtein}`
         }
         //------------------------------------------
@@ -108,19 +126,13 @@ document.addEventListener(`DOMContentLoaded`, () => {
             }
             fatsParam = `&FAT=${minFats}-${maxFats}`
         }
-    
-      fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=a017b689&app_key=98d82684e40a38e25c3eb55de4abcd75${calorieParam}${carbParam}${proteinParam}${fatsParam}`)
-      .then(resp => {
-        console.log(resp)
-        return resp.json()
-    })
-      .then(data => {
-          console.log(data)
-          data.hits.forEach(makeEverything)
-        })
-    form.reset()
+
+        fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=a017b689&app_key=98d82684e40a38e25c3eb55de4abcd75${calorieParam}${carbParam}${proteinParam}${fatsParam}`)
+            .then(resp => resp.json())
+            .then(data => data.hits.forEach(makeEverything))
+        form.reset()
+
     })
 })
 
 
-    

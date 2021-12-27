@@ -11,8 +11,23 @@
 </head>
 
 <body>
-    <main class="container">
-        <form class="row g-3" id="form">
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <div class="container">
+        <ul class="nav nav-pills nav-fill">
+            <li class="nav-item" id="search-link">
+            <a class="nav-link" aria-current="page" href="#">Search</a>
+            </li>
+            <li class="nav-item" id="meal-link">
+            <a class="nav-link" href="#">My Meals</a>
+            </li>
+        </ul>
+    </div>
+    </nav>
+    <br>
+    <br>
+    <!-- -----------------------Search Page---------------------------- -->
+    <main class="container" id="searchPage" style="background-color: black;">
+        <form class="row g-5" id="form">
             <div class="col-md-4">
                 <label for="calories" class="form-label">Enter amount of calories</label>
                 <input type="text" class="form-control" id="calories" placeholder="Calories...">
@@ -37,11 +52,14 @@
                 <button type="submit" class="btn btn-primary btn-lg " id="submit">Search Food!</button>
             </div>
         </form>
+    <br>
+    <br>
     </main>
     <!-- ---------------------Results Page--------------------------- -->
     <main class="container" id="resultsPage">
         <div class="row row-cols-1 row-cols-md-5 g-4" id="put-here"></div>
     </main>
+    <!-- ---------------------Plan Page------------------------------ -->
     <main class="container d-none" id="planPage">
         <div class="row row-cols-1 row-cols-md-5 g-4" id="plan-card"></div>
     </main>

@@ -114,6 +114,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
     form.addEventListener(`submit`, e => {
         e.preventDefault()
         card.replaceChildren()
+        info.className = 'container d-none'
 
         let calories = e.target.querySelector(`#calories`).value
         let carbs = e.target.querySelector(`#carbs`).value

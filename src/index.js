@@ -169,14 +169,15 @@ document.addEventListener(`DOMContentLoaded`, () => {
 
     })
 
-    search.addEventListener(`click`, () => {
+    search.addEventListener(`click`, (e) => {
         searchPage.className = 'container'
         resultPage.className = 'container'
         info.className = 'container'
         planPage.className = 'container d-none'
+        
     })
 
-    meal.addEventListener(`click`, () => {
+    meal.addEventListener(`click`, (e) => {
         planCard.replaceChildren()
         searchPage.className = 'container d-none'
         resultPage.className = 'container d-none'

@@ -1,0 +1,100 @@
+{
+  "plan": [
+    {
+      "name": "Baked Chicken",
+      "image": "https://www.edamam.com/web-img/01c/01cacb70890274fb7b7cebb975a93231.jpg",
+      "source": "http://www.edamam.com/recipe/baked-chicken-be3ba087e212f13672b553ecfa876333/chicken",
+      "nutrients": {
+        "calories": 225,
+        "carbs": 0,
+        "protein": 27,
+        "fat": 12
+      },
+      "id": 1
+    },
+    {
+      "name": "Catalan Chicken",
+      "image": "https://www.edamam.com/web-img/4d9/4d9084cbc170789caa9e997108b595de.jpg",
+      "source": "http://www.edamam.com/recipe/catalan-chicken-2463f2482609d7a471dbbf3b268bd956/chicken",
+      "nutrients": {
+        "calories": 278,
+        "carbs": 4,
+        "protein": 19,
+        "fat": 19
+      },
+      "id": 2
+    },
+    {
+      "name": "Chicken Stew",
+      "image": "https://www.edamam.com/web-img/74b/74bfb16655500083c4af92bcf45889f7.jpg",
+      "source": "http://www.edamam.com/recipe/chicken-stew-a7c379c59775dd0c7c88710f7fecff81/chicken",
+      "nutrients": {
+        "calories": 411,
+        "carbs": 17,
+        "protein": 24,
+        "fat": 22
+      },
+      "id": 3
+    },
+    {
+      "name": "Chicken Paprikash",
+      "image": "https://www.edamam.com/web-img/e12/e12b8c5581226d7639168f41d126f2ff.jpg",
+      "source": "http://www.edamam.com/recipe/chicken-paprikash-8275bb28647abcedef0baaf2dcf34f8b/chicken",
+      "nutrients": {
+        "calories": 758,
+        "carbs": 11,
+        "protein": 59,
+        "fat": 52
+      },
+      "id": 4
+    },
+    {
+      "name": "Cast Iron Honey Chicken",
+      "image": "https://www.edamam.com/web-img/f7a/f7a6fefc9010b6d7db4b0985d0c038a8.JPG",
+      "source": "http://www.edamam.com/recipe/cast-iron-honey-chicken-e2ddc14552e0bc9dadc4d5aeac1bb308/chicken/790-800-cal",
+      "nutrients": {
+        "calories": 798,
+        "carbs": 43,
+        "protein": 72,
+        "fat": 37
+      },
+      "id": 5
+    },
+    {
+      "name": "Sheet Pan Chicken Tikka recipes",
+      "image": "https://www.edamam.com/web-img/aa8/aa8648e5765792678d95ecbcb85903a4",
+      "source": "http://www.edamam.com/recipe/sheet-pan-chicken-tikka-recipes-94abafe9c66b569908b9e9c3650bb18c/chicken/790-800-cal",
+      "nutrients": {
+        "calories": 793,
+        "carbs": 42,
+        "protein": 46,
+        "fat": 49
+      },
+      "id": 6
+    },
+    {
+      "name": "Chicken Vesuvio",
+      "image": "https://www.edamam.com/web-img/490/490e497caab3672af63ea4c5833d1949.jpeg",
+      "source": "http://www.edamam.com/recipe/chicken-vesuvio-f14454959346cf236d716407bc1ce350/chicken/790-800-cal",
+      "nutrients": {
+        "calories": 790,
+        "carbs": 41,
+        "protein": 38,
+        "fat": 48
+      },
+      "id": 7
+    },
+    {
+      "name": "Chicken with Pesto Potatoes",
+      "image": "https://www.edamam.com/web-img/400/40096c05843c3ca9b08ea9d6b9df8053.jpg",
+      "source": "http://www.edamam.com/recipe/chicken-with-pesto-potatoes-f8b339a46abfb4b0ea27a8fa3b6bb045/chicken/790-800-cal",
+      "nutrients": {
+        "calories": 790,
+        "carbs": 43,
+        "protein": 35,
+        "fat": 53
+      },
+      "id": 8
+    }
+  ]
+}

@@ -1,25 +1,30 @@
 document.addEventListener(`DOMContentLoaded`, () => {
 
     let [form, card, planCard, search, meal, searchPage, resultPage, planPage] = [get(`form`), get('put-here'), get(`plan-card`), get(`search-link`), get(`meal-link`), get(`searchPage`), get(`resultsPage`), get(`planPage`)]
-
-    search.addEventListener(`click`, () => {
-        searchPage.className = 'container'
-        resultPage.className = 'container'
-        planPage.className = 'container d-none'
-    })
-
-    meal.addEventListener(`click`, () => {
-        searchPage.className = 'container d-none'
-        resultPage.className = 'container d-none'
-        planPage.className = 'container'
-    })
-
+//----------------------Functions---------------------------//
     function get(ele) {
         return document.getElementById(ele)
     }
 
     function create(ele) {
         return document.createElement(ele)
+    }
+
+    function addMeal() {
+        let remove = create('button')
+
+        remove.className = 'btn-close'
+        
+
+        remove.addEventListener(`click`, () => {
+            planCard.removeChild(col)
+        })
+
+        a.appendChild(cardTitle)
+        cardBody.append(a, cardText, addBtn)
+        equal.append(remove, image, cardBody)
+        col.appendChild(equal)
+        planCard.appendChild(col)
     }
 
     function makeEverything(object) {
@@ -51,22 +56,31 @@ document.addEventListener(`DOMContentLoaded`, () => {
         cardText.textContent = `Calories: ${calories} | Carbs: ${carbAmt} grams | Protein: ${proteinAmt} grams | Fats: ${fatAmt} grams`
 
         addBtn.addEventListener(`click`, () => {
-            let remove = create('button')
-
-            remove.className = 'btn-close'
-            addBtn.className = 'btn btn-danger'
-            addBtn.textContent = 'Added'
-            addBtn.disabled = true
-
-            remove.addEventListener(`click`, () => {
-                planCard.removeChild(col)
+            fetch(`http://localhost:3000/plan`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    image: img,
+                    source: url,
+                    nutrients: {
+                        calories: calories,
+                        carbs: carbAmt,
+                        protein: proteinAmt,
+                        fat: fatAmt
+                    }
+                })
             })
-
-            a.appendChild(cardTitle)
-            cardBody.append(a, cardText, addBtn)
-            equal.append(remove, image, cardBody)
-            col.appendChild(equal)
-            planCard.appendChild(col)
+            .then(resp => resp.json())
+            .then(() => {
+                addBtn.className = 'btn btn-danger'
+                addBtn.textContent = 'Added'
+                addBtn.disabled = true
+            })
+            .catch(error => alert(error))
         })
 
         a.appendChild(cardTitle)
@@ -75,7 +89,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
         col.appendChild(equal)
         card.appendChild(col)
     }
-
+//----------------------Events----------------------------//
     form.addEventListener(`submit`, e => {
         e.preventDefault()
         card.replaceChildren()
@@ -132,6 +146,22 @@ document.addEventListener(`DOMContentLoaded`, () => {
             .then(data => data.hits.forEach(makeEverything))
         form.reset()
 
+    })
+
+    search.addEventListener(`click`, () => {
+        searchPage.className = 'container'
+        resultPage.className = 'container'
+        planPage.className = 'container d-none'
+    })
+
+    meal.addEventListener(`click`, () => {
+        searchPage.className = 'container d-none'
+        resultPage.className = 'container d-none'
+        planPage.className = 'container'
+
+        fetch(`http://localhost:3000/plan`)
+        .then(resp => resp.json())
+        .then(data => console.log(data))
     })
 })
 

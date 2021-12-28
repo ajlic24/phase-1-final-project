@@ -1,7 +1,7 @@
 document.addEventListener(`DOMContentLoaded`, () => {
 
     let [form, card, planCard, search, meal, searchPage, resultPage, planPage] = [get(`form`), get('put-here'), get(`plan-card`), get(`search-link`), get(`meal-link`), get(`searchPage`), get(`resultsPage`), get(`planPage`)]
-//----------------------Functions---------------------------//
+    //----------------------Functions---------------------------//
     function get(ele) {
         return document.getElementById(ele)
     }
@@ -10,19 +10,40 @@ document.addEventListener(`DOMContentLoaded`, () => {
         return document.createElement(ele)
     }
 
-    function addMeal() {
-        let remove = create('button')
+    function addMeal({ name, image, source, nutrients, id }) {
+
+        let [col, equal, imgEle, cardBody, cardTitle, cardText, remove, a] = [create('div'), create('div'), create('img'), create('div'), create('h5'), create('p'), create('button'), create('a')]
 
         remove.className = 'btn-close'
-        
+        col.className = 'col'
+        equal.className = 'card h-100'
+        imgEle.className = 'card-img-top'
+        cardBody.className = 'card-body'
+        cardTitle.className = 'card-title'
+        cardText.className = 'card-text'
+        imgEle.src = image
+        a.href = source
+        a.target = '_blank'
+        cardTitle.textContent = name
+        cardText.textContent = `Calories: ${nutrients.calories} | Carbs: ${nutrients.carbs} grams | Protein: ${nutrients.protein} grams | Fats: ${nutrients.fat} grams`
+
 
         remove.addEventListener(`click`, () => {
-            planCard.removeChild(col)
+            fetch(`http://localhost:3000/plan/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
+                .then(resp => resp.json())
+                .then(planCard.removeChild(col))
         })
 
+        equal.style = 'background-color: #f8f9fa;'
         a.appendChild(cardTitle)
-        cardBody.append(a, cardText, addBtn)
-        equal.append(remove, image, cardBody)
+        cardBody.append(a, cardText)
+        equal.append(remove, imgEle, cardBody)
         col.appendChild(equal)
         planCard.appendChild(col)
     }
@@ -41,8 +62,6 @@ document.addEventListener(`DOMContentLoaded`, () => {
 
         let [col, equal, image, cardBody, cardTitle, cardText, addBtn, a] = [create('div'), create('div'), create('img'), create('div'), create('h5'), create('p'), create('button'), create('a')]
 
-        a.href = url
-        a.target = '_blank'
         col.className = 'col'
         equal.className = 'card h-100'
         image.className = 'card-img-top'
@@ -50,6 +69,8 @@ document.addEventListener(`DOMContentLoaded`, () => {
         cardTitle.className = 'card-title'
         cardText.className = 'card-text'
         addBtn.className = 'btn btn-success'
+        a.href = url
+        a.target = '_blank'
         image.src = img
         addBtn.textContent = 'Add'
         cardTitle.textContent = name
@@ -74,13 +95,13 @@ document.addEventListener(`DOMContentLoaded`, () => {
                     }
                 })
             })
-            .then(resp => resp.json())
-            .then(() => {
-                addBtn.className = 'btn btn-danger'
-                addBtn.textContent = 'Added'
-                addBtn.disabled = true
-            })
-            .catch(error => alert(error))
+                .then(resp => resp.json())
+                .then(() => {
+                    addBtn.className = 'btn btn-danger'
+                    addBtn.textContent = 'Added'
+                    addBtn.disabled = true
+                })
+                .catch(error => alert(error))
         })
 
         a.appendChild(cardTitle)
@@ -89,7 +110,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
         col.appendChild(equal)
         card.appendChild(col)
     }
-//----------------------Events----------------------------//
+    //----------------------Events----------------------------//
     form.addEventListener(`submit`, e => {
         e.preventDefault()
         card.replaceChildren()
@@ -155,13 +176,14 @@ document.addEventListener(`DOMContentLoaded`, () => {
     })
 
     meal.addEventListener(`click`, () => {
+        planCard.replaceChildren()
         searchPage.className = 'container d-none'
         resultPage.className = 'container d-none'
         planPage.className = 'container'
 
         fetch(`http://localhost:3000/plan`)
-        .then(resp => resp.json())
-        .then(data => console.log(data))
+            .then(resp => resp.json())
+            .then(data => data.forEach(addMeal))
     })
 })
 

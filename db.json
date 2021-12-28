@@ -13,16 +13,16 @@
       "id": 1
     },
     {
-      "name": "Portuguese Fish Stew recipes",
-      "image": "https://www.edamam.com/web-img/8c3/8c3fa76434ed247063fcb73cedb9688d",
-      "source": "http://www.edamam.com/recipe/portuguese-fish-stew-recipes-d4287fe5a333f3d32e29a77a085a1492/fish",
+      "name": "Beef Tea",
+      "image": "https://www.edamam.com/web-img/ad3/ad35ae4c847dcd39bad104838007f84a.jpg",
+      "source": "http://www.edamam.com/recipe/beef-tea-0f3a359371750f372c7ac3c1459751d9/beef",
       "nutrients": {
-        "calories": 600,
-        "carbs": 31,
-        "protein": 47,
-        "fat": 30
+        "calories": 257,
+        "carbs": 0,
+        "protein": 21,
+        "fat": 19
       },
-      "id": 3
+      "id": 6
     }
   ]
 }

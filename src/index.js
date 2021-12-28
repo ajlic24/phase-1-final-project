@@ -1,6 +1,6 @@
 document.addEventListener(`DOMContentLoaded`, () => {
 
-    let [form, card, planCard, search, meal, searchPage, resultPage, planPage] = [get(`form`), get('put-here'), get(`plan-card`), get(`search-link`), get(`meal-link`), get(`searchPage`), get(`resultsPage`), get(`planPage`)]
+    let [form, card, planCard, search, meal, searchPage, resultPage, planPage, info] = [get(`form`), get('put-here'), get(`plan-card`), get(`search-link`), get(`meal-link`), get(`searchPage`), get(`resultsPage`), get(`planPage`), get(`info-box`)]
     //----------------------Functions---------------------------//
     function get(ele) {
         return document.getElementById(ele)
@@ -172,6 +172,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
     search.addEventListener(`click`, () => {
         searchPage.className = 'container'
         resultPage.className = 'container'
+        info.className = 'container'
         planPage.className = 'container d-none'
     })
 
@@ -179,7 +180,9 @@ document.addEventListener(`DOMContentLoaded`, () => {
         planCard.replaceChildren()
         searchPage.className = 'container d-none'
         resultPage.className = 'container d-none'
+        info.className = 'container d-none'
         planPage.className = 'container'
+
 
         fetch(`http://localhost:3000/plan`)
             .then(resp => resp.json())

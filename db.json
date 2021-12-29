@@ -10,21 +10,73 @@
         "protein": 46,
         "fat": 14
       },
-      "heart": "♡",
+      "heart": "♥",
       "id": 1
     },
     {
-      "name": "Barbecued Beef Brisket",
-      "image": "https://www.edamam.com/web-img/b64/b64005809d54d818e6ded326347b07c8.jpg",
-      "source": "http://www.edamam.com/recipe/barbecued-beef-brisket-333e271a3dc26d367d4f6c1776cd0b13/beef",
+      "name": "Beef and Peppers Stir-Fry",
+      "image": "https://www.edamam.com/web-img/904/9040fcaff39c26df5d951b458d8cc9b2.jpg",
+      "source": "http://www.edamam.com/recipe/beef-and-peppers-stir-fry-85daa2689314343692ee65e1386fd95f/beef/490-500-cal",
       "nutrients": {
-        "calories": 381,
-        "carbs": 1,
-        "protein": 24,
-        "fat": 30
+        "calories": 491,
+        "carbs": 43,
+        "protein": 29,
+        "fat": 21
       },
       "heart": "♥",
-      "id": 3
+      "id": 4
+    },
+    {
+      "name": "Chicken Biryani",
+      "image": "https://www.edamam.com/web-img/2e0/2e06c8dc778a852b62f659cdaffdc97e.jpg",
+      "source": "http://www.edamam.com/recipe/chicken-biryani-023fc48ea13634670e010e1d56744254/chicken",
+      "nutrients": {
+        "calories": 838,
+        "carbs": 94,
+        "protein": 74,
+        "fat": 16
+      },
+      "heart": "♡",
+      "id": 7
+    },
+    {
+      "name": "Buffalo Chicken Wrap Recipe",
+      "image": "https://www.edamam.com/web-img/b44/b449ff01ed222204c1f6072197e61c8b.jpg",
+      "source": "http://www.edamam.com/recipe/buffalo-chicken-wrap-recipe-118790abeebcbc082267ccaee183cecf/chicken",
+      "nutrients": {
+        "calories": 2065,
+        "carbs": 99,
+        "protein": 61,
+        "fat": 159
+      },
+      "heart": "♥",
+      "id": 8
+    },
+    {
+      "name": "Chicken Piccata",
+      "image": "https://www.edamam.com/web-img/329/32929aa51f7300bc105b46e6ea32ba41.jpg",
+      "source": "http://www.edamam.com/recipe/chicken-piccata-8ef88f570cc9cd3fdd1f7e9a2c918b4e/chicken",
+      "nutrients": {
+        "calories": 1246,
+        "carbs": 98,
+        "protein": 79,
+        "fat": 53
+      },
+      "heart": "♡",
+      "id": 9
+    },
+    {
+      "name": "Farmhouse Chicken Dinner",
+      "image": "https://www.edamam.com/web-img/9d9/9d9ed407d56b979e57d7751df28b0c8a.jpg",
+      "source": "http://www.edamam.com/recipe/farmhouse-chicken-dinner-1ed1077a20032d3a300bad78a73f0149/chicken",
+      "nutrients": {
+        "calories": 679,
+        "carbs": 89,
+        "protein": 31,
+        "fat": 21
+      },
+      "heart": "♡",
+      "id": 11
     }
   ]
 }

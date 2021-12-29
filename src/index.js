@@ -2,6 +2,10 @@ document.addEventListener(`DOMContentLoaded`, () => {
 
     let [form, card, planCard, search, meal, searchPage, resultPage, planPage, info] = [get(`form`), get('put-here'), get(`plan-card`), get(`search-link`), get(`meal-link`), get(`searchPage`), get(`resultsPage`), get(`planPage`), get(`info-box`)]
     //----------------------Functions---------------------------//
+    function showBreaks(classArg) {
+        Array.from(document.getElementsByClassName(`breaks`)).forEach(el => el.className = classArg)
+    }
+
     function get(ele) {
         return document.getElementById(ele)
     }
@@ -10,9 +14,20 @@ document.addEventListener(`DOMContentLoaded`, () => {
         return document.createElement(ele)
     }
 
-    function addMeal({ name, image, source, nutrients, id }) {
+    function heartFetch(id, symbol) {
+        return fetch(`http://localhost:3000/plan/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ heart: symbol })
+        }).then(resp => resp.json())
+    }
 
-        let [col, equal, imgEle, cardBody, cardTitle, cardText, remove, a] = [create('div'), create('div'), create('img'), create('div'), create('h5'), create('p'), create('button'), create('a')]
+    function addMeal({ name, image, source, nutrients, id, heart }) {
+
+        let [col, equal, imgEle, cardBody, cardTitle, cardText, remove, a, hearty] = [create('div'), create('div'), create('img'), create('div'), create('h5'), create('p'), create('button'), create('a'), create(`p`)]
 
         remove.className = 'btn-close'
         col.className = 'col'
@@ -21,6 +36,8 @@ document.addEventListener(`DOMContentLoaded`, () => {
         cardBody.className = 'card-body'
         cardTitle.className = 'card-title'
         cardText.className = 'card-text'
+        hearty.className = 'float-end'
+        hearty.textContent = heart
         imgEle.src = image
         a.href = source
         a.target = '_blank'
@@ -40,9 +57,31 @@ document.addEventListener(`DOMContentLoaded`, () => {
                 .then(planCard.removeChild(col))
         })
 
+        if (heart === '♥') {
+            hearty.style = 'color: red;'
+        }
+
+        hearty.addEventListener(`click`, (e) => {
+            if (e.target.textContent === '♡') {
+                heartFetch(id, '♥')
+                    .then(data => {
+                        e.target.textContent = data.heart;
+                        e.target.style = 'color: red;'
+                    })
+
+            } else {
+                heartFetch(id, '♡')
+                    .then(data => {
+                        hearty.style = ''
+                        e.target.textContent = data.heart
+                    })
+
+            }
+        })
+
         equal.style = 'background-color: #f8f9fa;'
         a.appendChild(cardTitle)
-        cardBody.append(a, cardText)
+        cardBody.append(a, cardText, hearty)
         equal.append(remove, imgEle, cardBody)
         col.appendChild(equal)
         planCard.appendChild(col)
@@ -68,7 +107,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
         cardBody.className = 'card-body'
         cardTitle.className = 'card-title'
         cardText.className = 'card-text'
-        addBtn.className = 'btn btn-success'
+        addBtn.className = 'btn btn-success float-end'
         a.href = url
         a.target = '_blank'
         image.src = img
@@ -91,13 +130,14 @@ document.addEventListener(`DOMContentLoaded`, () => {
                         calories: calories,
                         carbs: carbAmt,
                         protein: proteinAmt,
-                        fat: fatAmt
-                    }
+                        fat: fatAmt,
+                    },
+                    heart: '♡'
                 })
             })
                 .then(resp => resp.json())
                 .then(() => {
-                    addBtn.className = 'btn btn-danger'
+                    addBtn.className = 'btn btn-danger float-end'
                     addBtn.textContent = 'Added'
                     addBtn.disabled = true
                 })
@@ -175,7 +215,8 @@ document.addEventListener(`DOMContentLoaded`, () => {
         resultPage.className = 'container'
         info.className = 'container'
         planPage.className = 'container d-none'
-        
+        showBreaks(`breaks`)
+
     })
 
     meal.addEventListener(`click`, (e) => {
@@ -184,7 +225,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
         resultPage.className = 'container d-none'
         info.className = 'container d-none'
         planPage.className = 'container'
-
+        showBreaks(`breaks d-none`)
 
         fetch(`http://localhost:3000/plan`)
             .then(resp => resp.json())

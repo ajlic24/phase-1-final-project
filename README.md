@@ -16,15 +16,22 @@ One of the most common stereotypes for individuals who count their calories/macr
 - Can favorite recipes if you want to cook them again later or for any other reason
 
 ## How to Use
-
+```text
 1. Start the search by putting in the type of food you want (ex: chicken, beef, pasta, etc.):
 2. You can specify the amount of calories and macros you want (must be a number):
+```
 > ![image](./img/step1.gif)
+```text
 3. You can opt to use just 1, 2, 3, or all of the search bars, but the `Food` search bar is always required:
+```
 > ![image](./img/step2.gif)
+```text
 4. Save recipes using the `Add` button. It will then go into the `My Meals` tab:
+```
 > ![image](./img/step3.gif))
+```text
 5. In the `My Meals` tab, you can remove recipes you don't want anymore, or favorite recipes you really like by clicking on the empty heart icon:
+```
 > ![image](./img/step4.gif))
 
 ## Technologies used

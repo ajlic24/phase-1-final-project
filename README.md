@@ -28,11 +28,11 @@ One of the most common stereotypes for individuals who count their calories/macr
 
 4. ***Save recipes using the `Add` button. It will then go into the `My Meals` tab:***
 
-> ![image](./img/step3.gif))
+> ![image](./img/step3.gif)
 
 5. ***In the `My Meals` tab, you can remove recipes you don't want anymore, or favorite recipes you really like by clicking on the empty heart icon:***
 
-> ![image](./img/step4.gif))
+> ![image](./img/step4.gif)
 
 ## Technologies used
 

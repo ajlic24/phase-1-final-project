@@ -10,21 +10,8 @@
         "protein": 59,
         "fat": 52
       },
-      "heart": "♥",
-      "id": 1
-    },
-    {
-      "name": "Catalan Chicken",
-      "image": "https://www.edamam.com/web-img/4d9/4d9084cbc170789caa9e997108b595de.jpg",
-      "source": "http://www.edamam.com/recipe/catalan-chicken-2463f2482609d7a471dbbf3b268bd956/chicken",
-      "nutrients": {
-        "calories": 278,
-        "carbs": 4,
-        "protein": 19,
-        "fat": 19
-      },
       "heart": "♡",
-      "id": 3
+      "id": 1
     }
   ]
 }

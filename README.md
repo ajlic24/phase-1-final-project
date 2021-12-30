@@ -18,9 +18,8 @@ One of the most common stereotypes for individuals who count their calories/macr
 ## How to Use
 
 1. Start the search by putting in the type of food you want (ex: chicken, beef, pasta, etc.):
-> Insert gif here
 2. You can specify the amount of calories and macros you want (must be a number):
-> Insert gif here
+> ![image](./img/step1.gif)
 3. You can opt to use just 1, 2, 3, or all of the search bars, but the `Food` search bar is always required:
 > Insert gif here
 4. Save recipes using the `Add` button. It will then go into the `My Meals` tab:

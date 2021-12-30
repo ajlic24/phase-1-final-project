@@ -17,7 +17,7 @@ One of the most common stereotypes for calorie/macro counters is the fact that t
 
 ## How to Use
 
-1. Start search by putting in the type of food you want (ex: 'chicken', 'beef', 'pasta', etc.):
+1. Start search by putting in the type of food you want (ex: chicken, beef, pasta, etc.):
 > Insert gif here
 2. You can specify the amount of calories you want (must be a number):
 > Insert gif here
@@ -25,5 +25,13 @@ One of the most common stereotypes for calorie/macro counters is the fact that t
 > Insert gif here
 4. You can opt to use just 1, 2, 3, or all of the search bars, but the `Food` search bar is always required:
 > Insert gif here
+5. Save a select number of recipes using the `Add` button. It will then go into the `My Meals` tab.
+> Insert gif here
+6. In the `My Meals` tab, you can remove recipes you don't want anymore, or favorite recipes you really like
+> Insert gif here
+
+
+
+
 
 

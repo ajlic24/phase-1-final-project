@@ -21,11 +21,11 @@ One of the most common stereotypes for individuals who count their calories/macr
 2. You can specify the amount of calories and macros you want (must be a number):
 > ![image](./img/step1.gif)
 3. You can opt to use just 1, 2, 3, or all of the search bars, but the `Food` search bar is always required:
-> Insert gif here
+> ![image](./img/step2.gif)
 4. Save recipes using the `Add` button. It will then go into the `My Meals` tab:
-> Insert gif here
+> ![image](./img/step3.gif))
 5. In the `My Meals` tab, you can remove recipes you don't want anymore, or favorite recipes you really like by clicking on the empty heart icon:
-> Insert gif here
+> ![image](./img/step4.gif))
 
 ## Technologies used
 

@@ -36,7 +36,7 @@ This web app was made using:
 - [Edamam api](https://developer.edamam.com/) 
 - JSON server
 
-> **Note**: This app is also deployed in Heroku.
+
 
 
 

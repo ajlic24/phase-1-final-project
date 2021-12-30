@@ -30,7 +30,9 @@ One of the most common stereotypes for calorie/macro counters is the fact that t
 6. In the `My Meals` tab, you can remove recipes you don't want anymore, or favorite recipes you really like
 > Insert gif here
 
+## Technologies used
 
+This web app was made using [bootstrap](https://getbootstrap.com/) (a CSS framework) and vanilla JavaSCript. For APIs, the [edamam api](https://developer.edamam.com/) was used along with a Heroku-deployed JSON server.
 
 
 

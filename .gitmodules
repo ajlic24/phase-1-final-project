@@ -1,0 +1,3 @@
+[submodule "json-server-template"]
+	path = json-server-template
+	url = git@github.com:learn-co-curriculum/json-server-template.git
